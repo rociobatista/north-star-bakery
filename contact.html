@@ -9,7 +9,7 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header>
-<img src="bakery-logo.png" alt="North Star Bakery logo">
+<img src="bakery-art.svg" alt="North Star Bakery logo">
 <h1>Contact and Preorders</h1>
 <nav aria-label="Main navigation">
 <ul>
@@ -24,7 +24,7 @@
 <section>
 <h2>Send Us a Message</h2>
 <p>Use this form to ask a question or request a preorder. This classroom example demonstrates HTML form validation; it does not send requests to a live bakery.</p>
-<form action="#" method="get">
+<form id="contact-form" action="#" method="get" novalidate>
 <fieldset>
 <legend>Your Contact Information</legend>
 <p><label for="customer-name">Full name (required)</label><br>
@@ -41,13 +41,14 @@
 <option value="">Please select</option>
 <option value="preorder">Preorder request</option>
 <option value="question">General question</option>
-</select></p>
+</select><span class="field-error" id="request-type-error" aria-live="polite"></span><span class="field-error" id="customer-email-error" aria-live="polite"></span><span class="field-error" id="customer-name-error" aria-live="polite"></span></p>
 <p><label for="item-details">Item details (required)</label><br>
-<textarea id="item-details" name="item-details" rows="4" cols="45" required minlength="5"></textarea></p>
+<textarea id="item-details" name="item-details" rows="4" cols="45" required minlength="5"></textarea><span class="field-error" id="item-details-error" aria-live="polite"></span></p>
 <p><label for="allergies">Allergy notes (if applicable)</label><br>
 <textarea id="allergies" name="allergies" rows="3" cols="45"></textarea></p>
 </fieldset>
 <button type="submit">Review Request</button>
+<p id="form-status" role="status" aria-live="polite"></p>
 </form>
 </section>
 <section>
@@ -59,5 +60,6 @@
 <p>&copy; 2026 North Star Bakery. Made with care for our community.</p>
 <p><a href="contact.html">Contact the bakery</a></p>
 </footer>
+<script src="script.js" defer></script>
 </body>
 </html>
